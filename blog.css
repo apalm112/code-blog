@@ -1,1 +1,12 @@
+body {
+    padding: 2em;
+}
 
+main {
+    margin:auto;
+    with: 75%;
+}
+
+address {
+    display: inline-block;
+}

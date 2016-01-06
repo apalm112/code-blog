@@ -12,14 +12,25 @@
             <header>
                 <h1>Code Blog!</h1>
             </header>
-            <nav>
-                <ul>
-                    <li><a href=""</a>Articles</li>
-                    <li><a href="www.twitter.com"</a>Twitter</li>
+            <!--Start Nav Tabs here-->
+            <div class="tabs">
+                <ul class="tab-links">
+                    <li class="active"><a href="#tab1"></a>Articles</li>
+                    <li><a href="https://twitter.com/LawrenceHemphil"</a>Twitter</li>
                     <li><a href="https://github.com/apalm112/"</a>Github</li>
-                    <li><a href=""</a>About (coming real soon!)</li>
+                    <li><a href="#tab4"></a>About (coming real soon!)</li>
                 </ul>
-            </nav>
+                <div class="tab-content">
+                    <div id="homeTab" class="tab active">
+                        <p>Home content goes here.</p>
+                    </div>
+                        <div id="aboutTab" class="tab">
+                            <p>About content goes here.</p>
+                        </div>
+                </div>
+            </div>
+
+
             <section id="blogArticles">
                 <article class="clone" data-category="cat">
                     <header>

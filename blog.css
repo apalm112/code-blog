@@ -10,3 +10,24 @@ main {
 address {
     display: inline-block;
 }
+
+
+/* Tabs  */
+.tabs {
+    width:100%;
+    display: inline-block;
+}
+/* Tab Links */
+.tab-links::after {
+    display: block;
+    clear: both;
+    content: '';
+}
+.tab-links li {
+    margin: 0px 5px;
+    float: left;
+    list-style: none;
+}
+.tab-links a {
+    
+}

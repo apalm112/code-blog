@@ -22,7 +22,8 @@ Portfolio.prototype.toHtml = function() {
 /*DAY 2
 As the creator, I want the Home and About nav links to act as tabs, so my story is revealed FAST.
 Add tabs for navigation */
-$('.tabs .tab-links a').on('click', function(e) {
+$(document).ready(function() {
+  $('.tabs .tab-links a').on('click', function(e) {
     var currentAttrValue = $(this).attr('href');
 
     // Show/hide tabs
@@ -30,8 +31,8 @@ $('.tabs .tab-links a').on('click', function(e) {
 
     //change/remove current tab to active
     $(this).parent('li').addClass('active').siblings().removeClass('active');
-
+    e.preventDefault();
+  });
 });
-
 
 /* As a reader, I want the portfolio to use a nice color scheme, so that it stands out visually.*/

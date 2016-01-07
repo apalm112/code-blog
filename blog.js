@@ -1,12 +1,17 @@
 // constructor function for projects
 function Portfolio (info) {
-  $(this).author = info(author);
+  this.author = info.author;
+  this.authorUrl = info.authorUrl;
+  this.title = info.title;
+  this.category = info.category;
+  this.body = info.body;
+  this.publishedOn = opts.publishedOn;
 }
 
 Portfolio.prototype.toHtml = function() {
   var $newPortfolio = $('portfolio.template').clone();
 
-  $newPortfolio.data('category', this.category);
+  $newPortfolio.data('data-category', this.category);
   $newPortfolio.data('name', this.name);
   $newPortfolio.data('url', this.url);
   $newPortfolio.data('title', this.title);
@@ -30,7 +35,7 @@ Portfolio.prototype.hideView = function () {
 articles.forEach(function(obj){
   blog = new Portfolio(obj);
   blog.toHtml();
-}
+});
 
 
 

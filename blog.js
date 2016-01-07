@@ -26,7 +26,7 @@ Portfolio.prototype.toHtml = function() {
   $newPortfolio.find('.article-body').html(this.body);
   $newPortfolio.find('time[pubdate]').attr('datetime', this.publishedOn);
   $newPortfolio.find('time[pubdate]').attr('datetime', this.publishedOn);
-  $newPortfolio.find('time').html('about ' + parseInt((new Date() - newDate(this.publishedOn))/60/60/24/1000) + ' days ago');
+  $newPortfolio.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newPortfolio.append('<hr>');
   return $newPortfolio;
 };
@@ -35,8 +35,8 @@ blogArticles.sort(function(a, b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
-blogArticles.forEach(function(articles) {
-  articles.push(new Portfolio());
+blogArticles.forEach(function(ele) {
+  articles.push(new Portfolio(ele));
 });
 
 articles.forEach(function(a) {

@@ -7,7 +7,7 @@ function Portfolio (info) {
   this.title = info.title;
   this.category = info.category;
   this.body = info.body;
-  this.publishedOn = opts.publishedOn;
+  this.publishedOn = info.publishedOn;
 }
 
 Portfolio.prototype.toHtml = function() {
@@ -35,8 +35,8 @@ blogArticles.sort(function(a, b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
-blogArticles.forEach(function(ele) {
-  articles.push(new Article(ele));
+blogArticles.forEach(function(articles) {
+  articles.push(new Portfolio());
 });
 
 articles.forEach(function(a) {

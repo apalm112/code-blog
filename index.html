@@ -3,11 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <title>Code Blog</title>
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendors/styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css"/>
-    <link rel="stylesheet" href="">
+    <script id="template" type="text/x-handlebars-template">
+      <article>
+        <header>
+          <h1>{{title}}</h1>
+          </div>
+        </header>
+      </article>
+    </script>
   </head>
   <body>
     <main>
@@ -50,7 +59,7 @@
         &copy; 2016 Code Fellows | Code Blog | Needs Moar Work
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="blogData.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="blog.js"></script>
     <script src="blogView.js"></script>
   </body>

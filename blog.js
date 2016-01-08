@@ -1,3 +1,4 @@
+var articles = [];
 // constructor function for projects
 function Portfolio (opts) {
   this.author = opts.author;

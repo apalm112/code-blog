@@ -1,13 +1,11 @@
-var articles = [];
-
 // constructor function for projects
-function Portfolio (info) {
-  this.author = info.author;
-  this.authorUrl = info.authorUrl;
-  this.title = info.title;
-  this.category = info.category;
-  this.body = info.body;
-  this.publishedOn = info.publishedOn;
+function Portfolio (opts) {
+  this.author = opts.author;
+  this.authorUrl = opts.authorUrl;
+  this.title = opts.title;
+  this.category = opts.category;
+  this.body = opts.body;
+  this.publishedOn = opts.publishedOn;
 }
 
 Portfolio.prototype.toHtml = function() {

@@ -1,6 +1,12 @@
 /* header background color from color scheme */
 .site-header {
   padding: 1em;
+  background-color: pink;
+}
+
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em .1em;
 }
 
 .main-nav {
@@ -9,11 +15,22 @@
   clear: both;
 }
 
+.icon-menu {
+  float: right;
+  max-width: 100%;
+
+}
+
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
   border-bottom: 1px solid #ccc;
+}
+
+.footer {
+  float: left;
+  padding: 0 0 .2em .1em;
 }
 
 /* style filters for resonsiveness */

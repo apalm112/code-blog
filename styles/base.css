@@ -12,6 +12,10 @@ address {
     display: inline-block;
 }
 
+img {
+  max-width: 100%;
+}
+
 
 /* Tabs  */
 .tabs {
@@ -59,4 +63,12 @@ li.active a, li.active a:hover {
 }
 .tab-active {
     display: block;
+}
+
+
+@media only screen and (min-width: 640px) {
+  {
+    padding: .1em .1em .1em .2em;
+    float: none;
+  }
 }

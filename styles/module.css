@@ -1,7 +1,7 @@
 /* header background color from color scheme */
 .site-header {
   padding: 1em;
-  background-color: pink;
+  background-color: #B3CBB9;
 }
 
 .heading-group-h1 {
@@ -17,7 +17,7 @@
 
 .icon-menu {
   float: right;
-  max-width: 100%;
+  max-width: 40px;
 
 }
 
@@ -29,8 +29,8 @@
 }
 
 .footer {
-  float: left;
-  padding: 0 0 .2em .1em;
+/*  float: left;
+  padding: 0 0 .2em .1em;*/
 }
 
 /* style filters for resonsiveness */
@@ -62,4 +62,26 @@
 
 .pull-right {
   float: right;
+}
+
+.project-title {
+  position: absolute;
+  border: 8px solid black;
+  display: inline-block;
+}
+
+
+@media only screen and (max-width:640px) {
+  .mobile-trigger {
+    display: none;
+  }
+  .main-nav li {
+    display: inline;
+    padding-left: 13%;
+    border-bottom: none;
+  }
+  .heading-group-h1 {
+    text-align: center;
+    padding-left: 35%;
+  }
 }

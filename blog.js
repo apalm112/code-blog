@@ -29,48 +29,29 @@ Portfolio.prototype.toHtml = function() {
   return $newPortfolio;
 };
 
-blogArticles.sort(function(a, b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
-
-blogArticles.forEach(function(ele) {
-  articles.push(new Portfolio(ele));
-});
-
-articles.forEach(function(a) {
-  $('#articles').append(a.toHtml());
-});
-
-/*Portfolio.prototype.append($newPortfolio);
-Portfolio.prototype.hideView();
-
-Portfolio.prototype.append = function (obj){
-  $('#blogArticles').append(obj);
-};
-
-Portfolio.prototype.hideView = function () {
-  $('portfolio.template').hide();
-};
-
-articles.forEach(function(obj){
-  blog = new Portfolio(obj);
-  blog.toHtml();
-});
-*/
-
-
-/*DAY 2
-As the creator, I want the Home and About nav links to act as tabs, so my story is revealed FAST.
-Add tabs for navigation */
-/*$(document).ready(function() {
-  $('.tabs .tab-links a').on('click', function(e) {
-    var currentAttrValue = $(this).attr('href');
-
-    // Show/hide tabs
-    $('.tabs ' + currentAttrValue).show().siblings().hide();
-
-    //change/remove current tab to active
-    $(this).parent('li').addClass('active').siblings().removeClass('active');
-    e.preventDefault();
+Portfolio.handleMainNav = function() {
+  $('.main-nav').on('click', '.tab', function(e) {
+    $('.tab-links').show();
+    $('#' + $(this).data('content')).fadeIn();
   });
-});*/
+
+  $('.main-nav .tab:first').click();
+};
+
+Portfolio.handleMainNav();
+
+
+// hamburger-menu code goes here
+var isActive = false;
+
+$('.js-menu').on('click', function() {
+  if (isActive) {
+    $(this).removeClass('active');
+    $('body').removeClass('menu-open');
+  } else {
+    $(this).addClass('active');
+    $('body').addClass('menu-open');
+  }
+
+  isActive =! isActive;
+});

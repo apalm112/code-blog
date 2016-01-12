@@ -29,17 +29,25 @@ Portfolio.prototype.toHtml = function() {
   return $newPortfolio;
 };
 
-blogArticles.sort(function(a, b) {
+/*blogArticles.sort(function(a, b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+});*/
 
-blogArticles.forEach(function(ele) {
+/*blogArticles.forEach(function(ele) {
   articles.push(new Portfolio(ele));
 });
 
 articles.forEach(function(a) {
   $('#articles').append(a.toHtml());
+});*/
+
+
+// Hide the nave tabs for RWD
+$('hamburger-menu')(function() {
+  $('this').click.hide();
 });
+
+
 
 /*Portfolio.prototype.append($newPortfolio);
 Portfolio.prototype.hideView();

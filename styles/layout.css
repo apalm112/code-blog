@@ -1,5 +1,19 @@
 .hamburger-menu {
   height: 75px;
   max-width: 100%;
+  float: right;
 
+}
+
+@media only screen and (min-width: 500px) {
+  .hamburger-menu {
+    display: none;
+    float: right;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .tab-links {
+    display: none;
+  }
 }

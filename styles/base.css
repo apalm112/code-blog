@@ -14,7 +14,7 @@ address {
 
 
 /* Tabs  */
-.tabs {
+.main-nav {
     width:100%;
     display: inline-block;
 }
@@ -61,4 +61,10 @@ li.active a, li.active a:hover {
 }
 .tab-active {
     display: block;
+}
+.projects {
+  height: 500px;
+  max-width: auto;
+  background-color: #B3CBB9;
+
 }

@@ -8,8 +8,15 @@ function Portfolio (opts) {
   this.publishedOn = opts.publishedOn;
 }
 
-Portfolio.prototype.toHtml = function() {
-  var $newPortfolio = $('portfolio.template').clone();
+Portfolio.prototype.toHtml = function(a) {
+  var source = $('#template').html();
+  var template = Handlebars.compile(source);
+  var html = template(a);
+  return html;
+};
+
+
+ var $newPortfolio = $('portfolio.template').clone();
   $newPortfolio.removeClass('template');
   if (!this.publishedOn) {
     $newPortfolio.addClass('draft');

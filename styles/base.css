@@ -49,6 +49,14 @@ li.active a, li.active a:hover {
 }
 
 
+@media only screen and (max-width: 600px) {
+  .tab-links {
+    display: none;
+    float: left;
+  }
+}
+
+
 
 /* Content of Tabs */
 .tab-content {

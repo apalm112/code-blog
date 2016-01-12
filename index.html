@@ -6,7 +6,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendors/styles/normalize.css">
-    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/base.css">  <!--causing layout problems w/ Hamburger menu-->
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" type="text/css" href="styles/layout.css">
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css"/>
@@ -22,6 +22,15 @@
     <main>
       <header>
         <h1>Code Portfolio!</h1>
+      </br>
+        <div class="tabs">
+          <ul class="tab-links">
+            <li class="active-tab"><a href="">Projects</a></li>
+            <li><a href="">About (coming real soon!)</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-palmer-67914897">Linkedin</a></li>
+            <li><a href="https://github.com/apalm112">Github</a></li>
+          </ul>
+        </div>
       </header>
     <!--  <nav class="main-nav">-->
         <button class="js-menu menu" type="button">
@@ -29,14 +38,14 @@
         </button>
         <nav>
           <ul class="burger-list">
-            <li class="tab-links"><a href="">Projects</a></li>
-            <li class="tab-links"><a href="">About (coming real soon!)</a></li>
-            <li class="tab-links"><a href="https://www.linkedin.com/in/adam-palmer-67914897">Linkedin</a></li>
-            <li class="tab-links"><a href="https://github.com/apalm112">Github</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">About (coming real soon!)</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-palmer-67914897">Linkedin</a></li>
+            <li><a href="https://github.com/apalm112">Github</a></li>
           </ul>
         </nav>
       <!--</nav>-->
-      <section class="projects">
+      <section class="projects"> <!-- the big block in the middle-->
           <article class="clone" data-category="cat">
             <section>
             </section>

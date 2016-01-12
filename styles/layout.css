@@ -6,9 +6,9 @@
 }*/
 
 @media only screen and (max-width: 600px) {
-  .tab-links {
+/*  .tab-links {
     display: none;
-  }
+  }*/
 }
 
 
@@ -19,7 +19,7 @@ body {
 /* Hamburger Menu here */
 
 @media only screen and (min-width: 600px) {
-  .js-menu {
+  .js-menu, .tab-links {
     display: none;
     float: right;
   }

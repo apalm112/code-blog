@@ -18,7 +18,7 @@ address {
     width:100%;
     display: inline-block;
 }
-/* Tab Links
+ Tab Links
 .tab-links:after {
     display: block;
     clear: both;
@@ -46,7 +46,7 @@ address {
 li.active a, li.active a:hover {
     background: #fff;
     color: #4c4c4c;
-}     */
+}
 
 
 

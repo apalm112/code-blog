@@ -8,14 +8,25 @@ function Portfolio (opts) {
   this.publishedOn = opts.publishedOn;
 }
 
-Portfolio.prototype.toHtml = function() {
-  var $newPortfolio = $('portfolio.template').clone();
+Portfolio.prototype.toHtml = function(a) {
+  var source = $('#template').html();
+  var template = Handlebars.compile(source);
+  var html = template(a);
+  return html;
+};
+
+
+
+
+
+
+/*  var $newPortfolio = $('portfolio.template').clone();
   $newPortfolio.removeClass('template');
   if (!this.publishedOn) {
     $newPortfolio.addClass('draft');
-  }
+  }*/
 
-  $newPortfolio.attr('data-category', this.category);
+/*  $newPortfolio.attr('data-category', this.category);
   $newPortfolio.attr('data-author', this.author);
 
   $newPortfolio.find('byline a').html(this.author);
@@ -26,7 +37,7 @@ Portfolio.prototype.toHtml = function() {
   $newPortfolio.find('time[pubdate]').attr('datetime', this.publishedOn);
   $newPortfolio.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newPortfolio.append('<hr>');
-  return $newPortfolio;
+  return $newPortfolio;*/
 };
 
 blogArticles.sort(function(a, b) {

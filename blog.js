@@ -1,5 +1,3 @@
-var blog = [];
-
 // constructor function for projects
 function Portfolio (opts) {
   this.author = opts.author;
@@ -10,11 +8,11 @@ function Portfolio (opts) {
   this.publishedOn = opts.publishedOn;
 }
 
-Portfolio.prototype.toHtml = function(a) {
-  var source = $('#template').html();
-  var template = Handlebars.compile(source);
-  var html = template(a);
-  return html;
+Portfolio.all = [];
+
+Portfolio.prototype.toHtml = function() {
+  var template = Handlebars.compile($('#article-template').text());
+  return template(this);
 };
 
 Portfolio.handleMainNav = function() {
@@ -26,6 +24,11 @@ Portfolio.handleMainNav = function() {
   $('.main-nav .tab:first').click();
 };
 Portfolio.handleMainNav();
+
+Portfolio.fetchAll(function)(ele) {
+  rawData
+}
+
 
 // hamburger-menu code goes here
 var isActive = false;

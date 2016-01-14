@@ -25,9 +25,39 @@ Portfolio.handleMainNav = function() {
 };
 Portfolio.handleMainNav();
 
-Portfolio.fetchAll(function)(ele) {
-  rawData
-}
+Portfolio.loadAll = function(rawData) {
+  rawData.forEach(function(ele) {
+    Portfolio.all.push(new Portfolio(ele));
+  });
+};
+
+
+Portfolio.fetchAll = function() {
+  if (localStorage.rawData) {
+    Portfolio.loadAll(JSON.parse(localStorage.rawData));
+    blogView.initIndexPage();
+  } else {
+    $.getJSON('//file goes here', function(rawData) {
+      Portfolio.loadAll(rawData);
+      localStorage.rawData = JSON.stringify(rawData);
+      portfolioView.initIndexPage();
+    });
+  }
+};
+
+//etag goal here
+/*var etagCheck = $.ajax() {
+  type: 'HEAD',
+  url: '//file goes here',
+  dataType: 'json',
+  ifModified: true,
+  complete: function (XMLHttpRequest, textStatus) {
+    var eTag = XMLHttpRequest.getResponseHeader('ETag');
+    console.log(eTag);
+  }
+};*/
+
+
 
 
 // hamburger-menu code goes here

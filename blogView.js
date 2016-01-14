@@ -63,6 +63,12 @@ blogView.setTeasers = function() {
   });
 };
 
+blogView.initIndexPage = function() {
+  Portfolio.all.forEach(function(a) {
+    $('#articles').append(a.toHtml());
+  });
+};
+
 $(document).ready(function() {
   blogView.populateFilters();
   blogView.handleCategoryFilter();

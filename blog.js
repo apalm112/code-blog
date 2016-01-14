@@ -16,13 +16,21 @@ Portfolio.prototype.toHtml = function(a) {
 };
 
 
+<<<<<<< HEAD
  var $newPortfolio = $('portfolio.template').clone();
+=======
+
+
+
+
+/*  var $newPortfolio = $('portfolio.template').clone();
+>>>>>>> class-04-again
   $newPortfolio.removeClass('template');
   if (!this.publishedOn) {
     $newPortfolio.addClass('draft');
-  }
+  }*/
 
-  $newPortfolio.attr('data-category', this.category);
+/*  $newPortfolio.attr('data-category', this.category);
   $newPortfolio.attr('data-author', this.author);
 
   $newPortfolio.find('byline a').html(this.author);
@@ -33,7 +41,7 @@ Portfolio.prototype.toHtml = function(a) {
   $newPortfolio.find('time[pubdate]').attr('datetime', this.publishedOn);
   $newPortfolio.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newPortfolio.append('<hr>');
-  return $newPortfolio;
+  return $newPortfolio;*/
 };
 
 Portfolio.handleMainNav = function() {

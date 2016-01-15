@@ -5,7 +5,6 @@ function Portfolio (opts) {
   this.title = opts.title;
   this.category = opts.category;
   this.body = opts.body;
-  this.publishedOn = opts.publishedOn;
 }
 
 Portfolio.all = [];
@@ -31,31 +30,65 @@ Portfolio.loadAll = function(rawData) {
   });
 };
 
-
-Portfolio.fetchAll = function() {
+Portfolio.serverGrab = function(a) {
   if (localStorage.rawData) {
     Portfolio.loadAll(JSON.parse(localStorage.rawData));
-    blogView.initIndexPage();
+    a();
   } else {
-    $.getJSON('//file goes here', function(rawData) {
+    $.getJSON('/data/portfolio.json', function() {
       Portfolio.loadAll(rawData);
       localStorage.rawData = JSON.stringify(rawData);
-      portfolioView.initIndexPage();
+      a();
     });
   }
 };
+    serverGrab = function() {
+      $.ajax({
+        url: '/data/portfolio.json',
+        Type: 'GET',
+        dataType: 'json',
+        success: function(rawData, message, xhr){
+          console.log('success');
+          Portfolio.loadAll(rawData);
+          localStorage.rawData = JSON.stringify(rawData);
+          blogView.initIndexPage();
+          localStorage.savedETag = JSON.stringify(xhr.getResponseHeader('ETag'));
+          console.log(localStorage.savedETag);
+        },
+          error: function(){
+            console.log('nope');
+          }
+        });
+    }
 
-//etag goal here
-/*var etagCheck = $.ajax() {
-  type: 'HEAD',
-  url: '//file goes here',
-  dataType: 'json',
-  ifModified: true,
-  complete: function (XMLHttpRequest, textStatus) {
-    var eTag = XMLHttpRequest.getResponseHeader('ETag');
-    console.log(eTag);
+
+article.fetchAll = function() {
+  if (localStorage.rawData) {
+
+    $.ajax({
+      url: '/data/portfolio.json',
+      Type: 'HEAD',
+      success: function(data, message, xhr) {
+        var getETag = xhr.getResponseHeader('ETag');
+        console.log(getETag);
+        console.log(JSON.parse(localStorage.savedETag));
+        if(getETag === JSON.parse(localStorage.savedETag)){
+          console.log('same tho');
+          Portfolio.loadAll(JSON.parse(localStorage.rawData));
+          blogView.initIndexPage();
+          console.log('same tho');
+        } else {
+          Portfolio.serverGrab();
+        }
+      }
+    });
+
+  } else {
+    console.log('you are in line 69');
+    Portfolio.serverGrab();
   }
-};*/
+};
+
 
 
 

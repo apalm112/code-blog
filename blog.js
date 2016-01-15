@@ -42,7 +42,7 @@ Portfolio.serverGrab = function(a) {
     });
   }
 };
-    serverGrab = function() {
+/*    serverGrab = function() {
       $.ajax({
         url: '/data/portfolio.json',
         Type: 'GET',
@@ -59,12 +59,10 @@ Portfolio.serverGrab = function(a) {
             console.log('nope');
           }
         });
-    }
+    }*/
 
-
-article.fetchAll = function() {
+Portfolio.fetchAll = function() {
   if (localStorage.rawData) {
-
     $.ajax({
       url: '/data/portfolio.json',
       Type: 'HEAD',
@@ -82,16 +80,11 @@ article.fetchAll = function() {
         }
       }
     });
-
   } else {
     console.log('you are in line 69');
     Portfolio.serverGrab();
   }
 };
-
-
-
-
 
 // hamburger-menu code goes here
 var isActive = false;

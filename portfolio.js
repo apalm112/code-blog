@@ -42,7 +42,8 @@
       });
     }
   };
-  /*    serverGrab = function() {
+  /*   attempt for code to check eTags 
+        serverGrab = function() {
         $.ajax({
           url: '/data/portfolio.json',
           Type: 'GET',
@@ -61,7 +62,7 @@
           });
       }*/
 
-/*  Portfolio.fetchAll = function() {
+  Portfolio.fetchAll = function() {
     if (localStorage.rawData) {
       $.ajax({
         url: '/data/portfolio.json',
@@ -81,10 +82,10 @@
         }
       });
     } else {
-      console.log('you are in line 69');
+      console.log('fetchAll called');
       Portfolio.serverGrab();
     }
-  };*/
+  };
 
   // hamburger-menu code goes here
   var isActive = false;
@@ -98,7 +99,7 @@
       $('body').addClass('menu-open');
     }
     isActive =! isActive;
-  });
+  });  // end hamburger-menu
 
   module.Portfolio = Portfolio;
 })(window);

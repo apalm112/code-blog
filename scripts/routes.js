@@ -1,4 +1,4 @@
 page('/', portfolioController.index);
-page('/about', aboutController.index);
+page('/about', repoController.index);
 
 page();

@@ -1,9 +1,9 @@
 (function(module) {
-  var aboutController = {};
+  var repoController = {};
 
-  aboutController.index = function() {
+  repoController.index = function() {
     repos.requestRepos(repoView.index);
   };
 
-  module.aboutController = aboutController;
+  module.repoController = repoController;
 })(window); //module is passed to the window object

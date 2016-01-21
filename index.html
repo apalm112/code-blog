@@ -1,42 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Code Blog</title>
-        <link rel="stylesheet" href="vendor/styles/normalize.css">
-        <link rel="stylesheet" href="styles/base.css">
-        <link rel="stylesheet" href="styles/modules.css">
-    </head>
-    <body>
-        <main>
-            <header>
-                <h1>Code Blog!</h1>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href=""</a>Articles</li>
-                    <li><a href="www.twitter.com"</a>Twitter</li>
-                    <li><a href="https://github.com/apalm112/"</a>Github</li>
-                    <li><a href=""</a>About (coming real soon!)</li>
-                </ul>
-            </nav>
-            <section id="blogArticles">
-                <article class="clone" data-category="cat">
-                    <header>
-                        <h1>Title</h1>
-                        <div>
-                            <address><a href="">Author</a></address>
-                        </div>
-                    </header>
-                    <section>
-                    </section>
-                </article>
+  <head>
+    <meta charset="UTF-8">
+    <title>Code Portfolio</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/base.css">  <!--causing layout problems w/ Hamburger menu-->
+    <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" type="text/css" href="styles/layout.css">
+    <script id="portfolio-template" type="text/x-handlebars-template">
+      <article>
+        <header>
+          <h1>{{title}}</h1>
+        </header>
+        <section class="portfolio-body">{{portfolio}}</section>
+      </article>
+    </script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Code Portfolio!</h1>
+        <div class="tabs">
+          <ul class="tab-links">
+            <li class="active-tab"><a href="">Projects</a></li>
+            <li><a href="">About (coming real soon!)</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-palmer-67914897">Linkedin</a></li>
+            <li><a href="https://github.com/apalm112">Github</a></li>
+          </ul>
+        </div>
+      </header>
+    <!--  <nav class="main-nav">-->
+        <button class="js-menu menu" type="button">
+          <span class="bar"></span>
+        </button>
+        <nav>
+          <ul class="burger-list">
+            <li><a href="">Projects</a></li>
+            <li><a href="">About (coming real soon!)</a></li>
+            <li><a href="https://www.linkedin.com/in/adam-palmer-67914897">Linkedin</a></li>
+            <li><a href="https://github.com/apalm112">Github</a></li>
+          </ul>
+        </nav>
+      <!--</nav>-->
+      <section class="projects"> <!-- the big block in the middle-->
+          <article class="clone" data-category="cat">
+            <section>
+              <ul>
+                <li>
+                  My Projects on Github.
+                </li>
+              </ul>
             </section>
-        </main>
-        <footer>
-            &copy; 2016 Code Fellows | Code Blog | Needs Moar Work
-        </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="blog.js"</script>
-    </body>
+          </article>
+        </section>
+    </main>
+    <footer>
+        &copy; 2016 Code Fellows | Portfolio | Needs Moar Work
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<<<<<<< HEAD
+    <script src="">/vendors/scripts/marked.js</script>
+    <script src="">/vendors/scripts/page.js</script>
+    <script src="">//webdb.js needed?</script>
+    <script src="">//html5sql.js needed?</script>
+
+    <script src="/scripts/blog.js"></script>
+    <script src="/scripts/blogView.js"></script>
+    <!--<script>blogView.fetchAll(initIndexPage);</script>-->
+
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/repoView.js"></script>
+    <script src="/scripts/aboutController.js"></script>
+    <script src="/scripts/routes.js"></script>
+=======
+    <script src="portfolio.js"></script>
+    <script src="portfolioView.js"></script>
+    <script>
+      Portfolio.fetchAll();
+    </script>
+    </script>
+>>>>>>> master
+  </body>
 </html>

@@ -1,0 +1,81 @@
+body {
+    padding: 4em;
+    background-color: #DDD8B8;
+}
+
+main {
+    margin:auto;
+    with: 75%;
+}
+
+address {
+    display: inline-block;
+}
+
+
+/* Tabs  */
+.burger-list {
+    width:100%;
+    display: inline-block;
+}
+ Tab Links
+.tab-links:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+.tab-links li {
+    margin: 0px 5px;
+    float: left;
+    list-style: none;
+}
+.tab-links a {
+    padding: 9px 15px;
+    display: inline-block;
+    border-radius: 3px 3px 0px 0px;
+    background: #7fb5da;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4c4c4c;
+    transition: all linear 0.15s;
+}
+.tab-links a:hover {
+    background: #a7cce5;
+    text-decoration: none;
+}
+li.active a, li.active a:hover {
+    background: #fff;
+    color: #4c4c4c;
+}
+
+
+@media only screen and (max-width: 680px) {
+  .tab-links {
+    display: none;
+    float: left;
+  }
+}
+
+
+
+/* Content of Tabs */
+.tab-content {
+    padding:15px;
+    border-radius: 3px;
+    box-shadow: -1px 1px 1px rgba(0,0,0,0.15);
+    background: #fff;
+    height: 500px;
+    max-width: 100%;
+}
+.tab {
+    display: none;
+}
+.tab-active {
+    display: block;
+}
+.projects {
+  height: 500px;
+  max-width: auto;
+  background-color: #B3CBB9;
+
+}

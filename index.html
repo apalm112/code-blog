@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/base.css">  <!--causing layout problems w/ Hamburger menu-->
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" type="text/css" href="styles/layout.css">
-    <script id="template" type="text/x-handlebars-template">
+    <script id="portfolio-template" type="text/x-handlebars-template">
       <article>
         <header>
           <h1>{{title}}</h1>
@@ -21,7 +21,6 @@
     <main>
       <header>
         <h1>Code Portfolio!</h1>
-      </br>
         <div class="tabs">
           <ul class="tab-links">
             <li class="active-tab"><a href="">Projects</a></li>
@@ -57,10 +56,11 @@
         </section>
     </main>
     <footer>
-        &copy; 2016 Code Fellows | Code Portfolio | Needs Moar Work
+        &copy; 2016 Code Fellows | Portfolio | Needs Moar Work
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<<<<<<< HEAD
     <script src="">/vendors/scripts/marked.js</script>
     <script src="">/vendors/scripts/page.js</script>
     <script src="">//webdb.js needed?</script>
@@ -74,5 +74,13 @@
     <script src="/scripts/repoView.js"></script>
     <script src="/scripts/aboutController.js"></script>
     <script src="/scripts/routes.js"></script>
+=======
+    <script src="portfolio.js"></script>
+    <script src="portfolioView.js"></script>
+    <script>
+      Portfolio.fetchAll();
+    </script>
+    </script>
+>>>>>>> master
   </body>
 </html>

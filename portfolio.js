@@ -13,7 +13,9 @@
     return template(this);
   };
 
-  /*Portfolio.handleMainNav = function() {
+  //commented out for class-11
+/*
+  Portfolio.handleMainNav = function() {
     $('.main-nav').on('click', '.tab', function(e) {
       $('.tab-links').show();
       $('#' + $(this).data('content')).fadeIn();
@@ -35,11 +37,11 @@
       Portfolio.loadAll(JSON.parse(localStorage.rawData));
       a();
     } else {
-      /*$.getJSON('/data/portfolio.json', function() {
+      $.getJSON('/data/portfolio.json', function() {
         Portfolio.loadAll(rawData);
         localStorage.rawData = JSON.stringify(rawData);
         a();
-      });*/
+      });
     }
   };
   /*   attempt for code to check eTags

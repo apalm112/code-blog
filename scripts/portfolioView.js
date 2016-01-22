@@ -46,14 +46,14 @@
     });
   };
 
-  portfolioView.handleMainNav = function() {
+/*  portfolioView.handleMainNav = function() {
     $('.main-nav').on('click', '.tab', function(e) {
       $('.tab-content').hide();
       $('#' + $(this).data('content')).fadeIn();
     });
 
     $('.main-nav .tab:first').click();
-  };
+  };*/
 
   portfolioView.setTeasers = function() {
     $('.portfolio-body *:nth-of-type(n+2)').hide();
@@ -73,7 +73,7 @@
     portfolioView.populateFilters();
     portfolioView.handleCategoryFilter();
     portfolioView.handleAuthorFilter();
-    portfolioView.handleMainNav();
+    /*portfolioView.handleMainNav();*/
     portfolioView.setTeasers();
   };
 

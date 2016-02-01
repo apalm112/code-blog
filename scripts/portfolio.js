@@ -13,14 +13,6 @@
     return template(this);
   };
 
-  /*Portfolio.handleMainNav = function() {
-    $('.main-nav').on('click', '.tab', function(e) {
-      $('.tab-links').show();
-      $('#' + $(this).data('content')).fadeIn();
-    });
-
-    $('.main-nav .tab:first').click();
-  };*/
 
   Portfolio.loadAll = function(rawData) {
     Portfolio.all = rows.map(function(ele) {
@@ -103,5 +95,3 @@
 
   module.Portfolio = Portfolio;
 })(window);
-
-/*Portfolio.handleMainNav();*/

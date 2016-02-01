@@ -1,24 +1,12 @@
 (function(module) {
-  var repoView = {};
+  var articlesController = {};
+  Article.createTable();
 
-  var something = function() {
-    var $about = $('#about');  //This caches the DOM query
-
-    $about.find('ul').empty();
-    $about.show().siblings().hide();
+  Article.fetchAll(articleView.initIndexPage);
+  articlesController.index = function() {
+    $('main > section').hide();
+    $('#articles').show();
   };
 
-  var render = function(repo) {
-    return $('<li>').html('<a href="' + repo.html_url + '">' + repo.full_name + '</a>');
-  };
-
-  repoView.index = function() {
-    something();
-
-    $('#about ul').append(
-      repos.with('forks_count').map(render)
-    );
-  };
-
-  module.repoView = repoView;
+  module.articlesController= articlesController;
 })(window);

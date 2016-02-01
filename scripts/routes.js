@@ -1,6 +1,6 @@
-page.base();
+page.base('');
 
-page('/', portfolioController.index);
+page('/', portfolioView.index);
 page('/about', aboutController.index);
 
 page();

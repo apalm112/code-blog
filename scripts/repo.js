@@ -20,4 +20,4 @@
   };
 
   module.repos = repos;
-});(window);
+})(window);

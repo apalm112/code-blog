@@ -2,10 +2,10 @@
   var aboutController = {};
 
   aboutController.index = function() {
-   // repos.requestRepos(repoView.index);  //I don't think this line works
     // hides main section elements, then reveals the about section
     $('.projects').hide();
     $('.clone').show();
+    repos.requestRepos(reposView.index);
   };
 
   module.aboutController = aboutController;

@@ -3,6 +3,10 @@
   // create a view object, to hold functions
   var portfolioView = {};
 
+  var render = function(portfolio) {
+    var template = Handlebars.compile($('#portfolio-template').text());
+    return template(portfolio);
+  };
   // This method is not tied to anything.
   portfolioView.populateFilters = function() {
     $('article').each(function() {

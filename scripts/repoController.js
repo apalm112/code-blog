@@ -1,24 +1,10 @@
-/*(function(module) {
-  var reposView = {};
-  Portfolio.createTable();
-
-  Portfolio.fetchAll(portfolioView.initIndexPage);
-  reposView.index = function() {
-    $('main > section').hide();
-    $('projects').show();
-  };
-
-  module.reposView= reposView;
-})(window);
-*/
-
-//formerly the repoView below 10:19PM
 (function(module) {
   var portfoliosController = {};
   Portfolio.createTable();
 
   portfoliosController.index = function() {
-    $('.clone').hide();
+    $('.clone').hide();   // hides /about page then shows / page
+    $('.github').empty();  // empty the <ul> so the repo names don't stack up
     $('.projects').show();
   };
 

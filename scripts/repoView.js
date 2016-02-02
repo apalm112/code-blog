@@ -1,23 +1,23 @@
 (function(module) {
   var reposView = {};
 
-  var ui = function() {
+  var ul = function() {
     var $about = $('.github');
 
     $about.find('ul').empty();
     $about.show().siblings().hide();
-  //  $('.clone').hide();
   //  $('.projects').show();
+  //  $('.clone').hide();
   };
 
   var render = function(repo) {
     var template = Handlebars.compile($('#projects-template').text());
-    return template(repo);
     console.log('render the github repos');
+    return template(repo);
   };
 
   reposView.index = function() {
-    ui();
+    ul();
     $('.github').append(
       repos.with('name').map(render)
     );

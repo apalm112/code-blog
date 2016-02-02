@@ -10,17 +10,54 @@
 
   Portfolio.prototype.toHtml = function() {
     var template = Handlebars.compile($('#portfolio-template').text());
+    this.body = marked(this.body);
     return template(this);
   };
 
+  Portfolio.createTable = function(callback) {
+    webdb.execute(
+      'CREATE TABLE IF NOT EXISTS portfolios (' + 'id INTEGER PRIMARY KEY, ' + 'author VARCHAR(255) NOT NULL, ' + 'body TEXT NOT NULL);',
+      function(result) {
+        console.log('Table is set up', result);
+        if(callback) callback();
+      }
+    );
+  };
 
-  Portfolio.loadAll = function(rawData) {
+  Portfolio.truncateTable = function(callback){
+    webdb.execute(
+      'DELETE FROM portfolios;',
+      callback
+    );
+  };
+
+  Portfolio.loadAll = function(rows) {
     Portfolio.all = rows.map(function(ele) {
       return new Portfolio(ele);
-/*    rawData.forEach(function(ele) {
-      Portfolio.all.push(new Portfolio(ele));*/
     });
   };
+
+  Portfolio.fetchAll = function(next) {
+    webdb.execute('SELECT * FROM portfolios ORDER BY author', function(rows) {
+        if (rows.length) {
+          Portfolio.loadAll(rows);
+          next();
+        } else {
+          $.getJSON('/data/portfolio.json', function(rawData) {
+              rawData.forEach(function(item) {
+                var portfolio = new Portfolio(item);
+                portfolio.insesrtRecord();
+              });
+              webdb.execute('SELECT * FROM portfolios', function(rows) {
+                Portfolio.loadAll(rows);
+                next();
+              });
+          });
+        }
+    });
+  };
+
+
 
   Portfolio.serverGrab = function(a) {
     if (localStorage.rawData) {

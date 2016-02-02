@@ -6,10 +6,8 @@
 
     $about.find('ul').empty();
     $about.show().siblings().hide();
-
   //  $('.clone').hide();
   //  $('.projects').show();
-
   };
 
   var render = function(repo) {
@@ -21,7 +19,7 @@
   reposView.index = function() {
     ui();
     $('.github').append(
-      repos.with('forks_count').map(render)
+      repos.with('name').map(render)
     );
     console.log('repoViewIndex render is here');
   };

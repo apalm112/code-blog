@@ -34,7 +34,7 @@ address {
     display: inline-block;
     border-radius: 3px 3px 0px 0px;
     background: #7fb5da;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #4c4c4c;
     transition: all linear 0.15s;
@@ -77,5 +77,14 @@ li.active a, li.active a:hover {
   height: 500px;
   max-width: auto;
   background-color: #B3CBB9;
-
+}
+.clone {
+  height: 500px;
+  max-width: auto;
+  background-color:  #DDD8B8;  /* #6A66A3; */
+}
+.github {
+    font-size: 15px;
+    padding-top: 100px;
+    padding-left: 250px;
 }

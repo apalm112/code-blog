@@ -4,8 +4,8 @@
 
   Portfolio.fetchAll(portfolioView.initIndexPage);
   portfoliosController.index = function() {
-    $('main > section').hide();
-    $('#articles').show();
+    $('.clone').hide();
+    $('.projects').show();
   };
 
   module.portfoliosController= portfoliosController;

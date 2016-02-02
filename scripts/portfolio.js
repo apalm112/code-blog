@@ -15,7 +15,7 @@
   };
 
   Portfolio.createTable = function(callback) {
-    webdb.execute(
+    webDB.execute(
       'CREATE TABLE IF NOT EXISTS portfolios (' + 'id INTEGER PRIMARY KEY, ' + 'author VARCHAR(255) NOT NULL, ' + 'body TEXT NOT NULL);',
       function(result) {
         console.log('Table is set up', result);
@@ -25,7 +25,7 @@
   };
 
   Portfolio.truncateTable = function(callback){
-    webdb.execute(
+    webDB.execute(
       'DELETE FROM portfolios;',
       callback
     );
@@ -38,7 +38,7 @@
   };
 
   Portfolio.fetchAll = function(next) {
-    webdb.execute('SELECT * FROM portfolios ORDER BY author', function(rows) {
+    webDB.execute('SELECT * FROM portfolios ORDER BY author', function(rows) {
         if (rows.length) {
           Portfolio.loadAll(rows);
           next();
@@ -48,7 +48,7 @@
                 var portfolio = new Portfolio(item);
                 portfolio.insesrtRecord();
               });
-              webdb.execute('SELECT * FROM portfolios', function(rows) {
+              webDB.execute('SELECT * FROM portfolios', function(rows) {
                 Portfolio.loadAll(rows);
                 next();
               });

@@ -1,12 +1,12 @@
 (function(module) {
-  var articlesController = {};
+  var portfoliosController = {};
   Portfolio.createTable();
 
-  Portfolio.fetchAll(articleView.initIndexPage);
-  articlesController.index = function() {
+  Portfolio.fetchAll(portfolioView.initIndexPage);
+  portfoliosController.index = function() {
     $('main > section').hide();
     $('#articles').show();
   };
 
-  module.articlesController= articlesController;
+  module.portfoliosController= portfoliosController;
 })(window);

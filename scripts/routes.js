@@ -1,6 +1,8 @@
 page.base('');
 
-page('/', articlesController.index);
+page('/', portfoliosController.index);
 page('/about', aboutController.index);
+
+console.log('page.base belong to us');
 
 page();

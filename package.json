@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/apalm112/code-blog/issues"
   },
-  "homepage": "https://github.com/apalm112/code-blog#readme"
+  "homepage": "https://github.com/apalm112/code-blog#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-request-proxy": "^1.1.0"
+  }
 }

@@ -57,8 +57,6 @@
     });
   };
 
-
-
   Portfolio.serverGrab = function(a) {
     if (localStorage.rawData) {
       Portfolio.loadAll(JSON.parse(localStorage.rawData));

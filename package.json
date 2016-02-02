@@ -1,0 +1,21 @@
+{
+  "name": "code-blog",
+  "version": "1.0.0",
+  "description": "color source:  https://coolors.co/app/ddd8b8-b3cbb9-84a9c0-6a66a3-542e71",
+  "main": "portfolio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apalm112/code-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apalm112/code-blog/issues"
+  },
+  "homepage": "https://github.com/apalm112/code-blog#readme"
+}

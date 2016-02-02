@@ -1,24 +1,12 @@
 (function(module) {
-  var repoView = {};
+  var portfoliosController = {};
+  Portfolio.createTable();
 
-  var something = function() {
-    var $about = $('#about');  //This caches the DOM query
-
-    $about.find('ul').empty();
-    $about.show().siblings().hide();
+  Portfolio.fetchAll(portfolioView.initIndexPage);
+  portfoliosController.index = function() {
+    $('.clone').hide();
+    $('.projects').show();
   };
 
-  var render = function(repo) {
-    return $('<li>').html('<a href="' + repo.html_url + '">' + repo.full_name + '</a>');
-  };
-
-  repoView.index = function() {
-    something();
-
-    $('#about ul').append(
-      repos.with('forks_count').map(render)
-    );
-  };
-
-  module.repoView = repoView;
+  module.portfoliosController= portfoliosController;
 })(window);

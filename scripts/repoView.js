@@ -1,8 +1,8 @@
 (function(module) {
   var articlesController = {};
-  Article.createTable();
+  Portfolio.createTable();
 
-  Article.fetchAll(articleView.initIndexPage);
+  Portfolio.fetchAll(articleView.initIndexPage);
   articlesController.index = function() {
     $('main > section').hide();
     $('#articles').show();

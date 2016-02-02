@@ -1,4 +1,4 @@
-(function(module) {
+/*(function(module) {
   var reposView = {};
   Portfolio.createTable();
 
@@ -10,3 +10,4 @@
 
   module.reposView= reposView;
 })(window);
+*/

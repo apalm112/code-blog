@@ -17,6 +17,9 @@
           <section class="portfolio-body">{{portfolio}}</section>
         </article>
       </script>
+      <script id="projects-template" type="text/x-handlebars-template">
+        <li>{{name}}</li>
+      </script>
     </head>
     <body>
       <main>
@@ -47,7 +50,7 @@
         <section class="projects"> <!-- the big block in the middle-->
         </section>
             <article class="clone" data-category="cat">
-              <section>
+              <section >
                 <ul class="github">
                   <li>My Projects on Github.</li>
                   <li>Guessing Game</li>
@@ -80,9 +83,6 @@
       <script src="/scripts/repoView.js"></script>
       <script src="/scripts/routes.js"></script>
 
-      <script>
-        <!--Portfolio.fetchAll(portfolioView); -->
-      </script>
       </script>
     </body>
   </html>

@@ -9,3 +9,6 @@ http://codepen.io/alexnewman/pen/ByePod hamburger-menu
 
 https://highlightjs.org/download/
 http://html5sql.com/
+
+Site published on heroku:  http://code-blog.herokuapp.com/
+

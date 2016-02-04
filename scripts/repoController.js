@@ -1,11 +1,17 @@
 (function(module) {
   var portfoliosController = {};
+
   Portfolio.createTable();
 
   portfoliosController.index = function(ctx, next) {
-    $('.clone').hide();   // hides /about page then shows / page
+   /* $('.clone').hide();   // hides /about page then shows / page
     $('.github').empty();  // empty the <ul> so the repo names don't stack up
-    $('.projects').show();
+    $('.projects').show();*/
+
+    var $about = $('.projects');
+
+    $about.find('ul').empty();
+    $about.show().children().hide();
     portfolioView.index(ctx.portfolios);
   };
 
@@ -34,10 +40,24 @@
       ctx.portfolios = portfoliosInCategory;
       next();
     };
+
+    Portfolio.findWhere('category', ctx.params.categoryName, categoryData);
   };
 
+  // Middleware for getting all of the repos
+  portfoliosController.loadAll = function(ctx, next) {
+    var portfolioData = function(allPortfolios) {
+      ctx.portfolios = Portfolio.all;
+      next();
+    };
 
-
+    if (Portfolio.all.length) {
+      ctx.portfolios = Portfolio.all;
+      next();
+    } else {
+      Portfolio.fetchAll(portfolioData);
+    }
+  };
 
   module.portfoliosController= portfoliosController;
 })(window);

@@ -12,9 +12,3 @@
 
   module.aboutController = aboutController;
 })(window); //module is passed to the window object
-
-
-
-
-
-

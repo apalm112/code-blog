@@ -7,70 +7,84 @@
     var template = Handlebars.compile($('#portfolio-template').text());
     return template(portfolio);
   };
-  // This method is not tied to anything.
+
+  // stretch goal for class-14 middleware
   portfolioView.populateFilters = function() {
-    $('article').each(function() {
-      if (!$(this).hasClass('template')) {
-        var value = $(this).find('address a').text();
-        var optionTag = '<option value="' + value + '">' + value + '</option>';
-        $('#author-filter').append(optionTag);
+    var options,
+      template = Handlebars.compile($('#options-template').text());
 
-        value = $(this).attr('data-category');
-        optionTag = '<option value="' + value + '">' + value + '</option>';
-        if ($('#category-filter option[value="' + value + '"]').length === 0) {
-          $('#category-filter').append(optionTag);
-        }
-      }
+    //asynchronous approach
+    Portfolio.allCategories(function(rows) {
+      if ($('#category-filter option').length < 2) {
+        $('#category-filter').append(
+          rows.map(function(row) {
+            return template({val: row.category});
+          })
+        );
+      };
     });
   };
 
-  portfolioView.handleAuthorFilter = function() {
-    $('#author-filter').on('change', function() {
-      if ($(this).val()) {
-        $('article').hide();
-        $('article[data-author="' + $(this).val() + '"]').fadeIn();
-      } else {
-        $('article').fadeIn();
-        $('article.template').hide();
-      }
-      $('#category-filter').val();
+  //combine filter functions into one event handler
+  portfolioView.handleFilters = function() {
+    $('#filters').one('change', 'select', function() {
+      resource = this.id.replace('-filter', '');
+      page('/' + $(this).val().replace(/\W+/g, '+'));
     });
   };
 
-  portfolioView.handleCategoryFilter = function() {
-    $('#category-filter').on('change', function() {
-      if ($(this).val()) {
-        $('article').hide();
-        $('article[data-category="' + $(this).val() + '"]').fadeIn();
-      } else {
-        $('article').fadeIn();
-        $('article.template').hide();
-      }
-      $('#author-filter').val();
+  portfolioView.initNewPortfolioPage = function() {
+    $('#portfolios').show().siblings().hide();
+
+    $('#export-field').hide();
+    $('#portfolio-json').on('focus', function() {
+      this.select();
     });
+
+    $('#new-form').on('change', 'input, textarea', portfolioView.create);
   };
 
+  portfolioView.create = function() {
+    var portfolio;
+    $('#portfolios').empty();
 
-  portfolioView.setTeasers = function() {
-    $('.portfolio-body *:nth-of-type(n+2)').hide();
-
-    $('#portfolio-template').on('click', 'a.read-on', function(e) {
-      e.preventDefault();
-      $(this).parent().find('*').fadeIn();
-      $(this).hide();
+    portfolio = new Portfolio({
+      title: $('#portfolio-title').val(),
+      author: $('#portfolio-author').val(),
+      author: $('#portfolio-author-url').val(),
+      author: $('#portfolio-category').val(),
+      body: $('#portfolio-body').val()
     });
+
+    $('#portfolios').append(render(portfolio));
+
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+
+    $('#export-field').show();
+    $('#portfolio-json').val(JSON.stringify(portfolio) + ',');
+  };
+
+  portfolioView.index = function(portfolios) {
+    $('#portfolios').show().siblings().hide();
+
+    $('#portfolios porfolio').remove();
+   // portfolios.forEach(function(a) {
+    $('#portfolios').append(render());
+
+    portfolioView.populateFilters();
+    portfolioView.handleFilters();
+
+    if ($('#portfolios portfolio').length > 1) {
+      $('.portfolio-body *:nth-of-type(n+2)').hide();
+    }
   };
 
   portfolioView.initIndexPage = function() {
     Portfolio.all.forEach(function(a) {
       $('#portfolio-template').append(a.toHtml());
     });
-
-    portfolioView.populateFilters();
-    portfolioView.handleCategoryFilter();
-    portfolioView.handleAuthorFilter();
-
-    portfolioView.setTeasers();
   };
 
   portfolioView.initAdminPage = function() {

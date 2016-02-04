@@ -31,6 +31,18 @@
     );
   };
 
+  Portfolio.prototype.insertRecord = function(callback) {
+    webDB.excute(
+      [
+        {
+          'sql': 'INSERT INTO portfolios (title, author, authorUrl, category, body) VALUES (?, ?, ?, ?, ?);',
+          'data': [this.title, this.author, this.authorUrl, this.category, this.body],
+        }
+      ],
+      callback
+    );
+  };
+
   Portfolio.loadAll = function(rows) {
     Portfolio.all = rows.map(function(ele) {
       return new Portfolio(ele);
@@ -57,37 +69,44 @@
     });
   };
 
+  Portfolio.allAuthors = function() {
+    return Article.all.map(function(porfolio) {
+      return portfolio.author;
+     })
+     .reduce(function(names, name) {
+       if (names.indexOf(name) === -1) {
+         names.push(name);
+       }
+       return names;
+     }, []);
+   };
+
+   // DONE: Example of async, SQL-based approach to getting unique data
+   Portfolio.allCategories = function(callback) {
+     webDB.execute('SELECT DISTINCT category FROM articles;', callback);
+   };
+
+   Portfolio.numWordsAll = function() {
+     return Article.all.map(function(portfolio) {
+       return portfolio.body.match(/\b\w+/g).length;
+     })
+     .reduce(function(a, b) {
+      return a + b;
+    });
+   };
+
   Portfolio.serverGrab = function(a) {
     if (localStorage.rawData) {
       Portfolio.loadAll(JSON.parse(localStorage.rawData));
       a();
     } else {
-      $.getJSON('/data/portfolio.json', function() {
+      $.getJSON('data/portfolio.json', function() {
         Portfolio.loadAll(rawData);
         localStorage.rawData = JSON.stringify(rawData);
         a();
       });
     }
   };
-  /*   attempt for code to check eTags
-        serverGrab = function() {
-        $.ajax({
-          url: '/data/portfolio.json',
-          Type: 'GET',
-          dataType: 'json',
-          success: function(rawData, message, xhr){
-            console.log('success');
-            Portfolio.loadAll(rawData);
-            localStorage.rawData = JSON.stringify(rawData);
-            portfolioView.initIndexPage();
-            localStorage.savedETag = JSON.stringify(xhr.getResponseHeader('ETag'));
-            console.log(localStorage.savedETag);
-          },
-            error: function(){
-              console.log('nope');
-            }
-          });
-      }*/
 
   Portfolio.fetchAll = function() {
     if (localStorage.rawData) {
@@ -113,7 +132,9 @@
       Portfolio.serverGrab();
     }
   };
-
+  Portfolio.allCategories = function(callback) {
+    webDB.execute('SELECT DISTINCT category FROM portfolios;', callback);
+  };
   // hamburger-menu code goes here
   var isActive = false;
 
